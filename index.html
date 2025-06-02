@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Identificador de Plantas</title>
+  <link rel="icon" href="logo.jpg" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="min-h-screen flex items-center justify-center p-6 relative">
+  <div class="header">
+    <img src="logo.jpg" alt="Logo" class="h-12">
+  </div>
+
+  <div class="card w-full max-w-2xl p-8">
+    <h1 class="text-3xl font-bold text-gray-800 mb-2">Identificador de Plantas</h1>
+    <p class="text-gray-600 mb-6">Envie uma foto da planta para obter informações detalhadas</p>
+
+    <div class="file-upload mb-6">
+      <label for="imageUpload" class="file-upload-label">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-green-500 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+        </svg>
+        <span class="text-green-600 font-medium">Clique para selecionar uma imagem</span>
+        <span class="text-gray-500 text-sm mt-1">Formatos suportados: JPG, PNG</span>
+        <input type="file" id="imageUpload" accept="image/*" class="file-upload-input" onchange="uploadImage(event)">
+      </label>
+    </div>
+
+    <div id="imageContainer" class="mb-6 flex justify-center">
+      <img id="plantImage" src="" alt="Planta identificada" class="max-h-64 rounded-lg shadow-md hidden object-cover border border-gray-200">
+    </div>
+
+    <div id="descriptionContainer" class="hidden">
+      <h2 class="text-xl font-semibold text-gray-800 mb-3">Informações da Planta</h2>
+      <div class="description-box">
+        <p id="plantDescription" class="text-gray-700 whitespace-pre-line"></p>
+      </div>
+    </div>
+
+    <div id="questionContainer" class="hidden mt-6">
+      <h2 class="text-lg font-semibold text-gray-800 mb-2">Faça uma pergunta sobre a planta</h2>
+      <div class="flex flex-col sm:flex-row gap-2">
+        <input type="text" id="plantQuestion" class="border border-gray-300 rounded-lg px-4 py-2 w-full" placeholder="Ex: Quanto tempo essa planta vive?">
+        <button onclick="searchInDescription()" class="btn-primary text-white px-4 py-2 rounded-lg">Perguntar</button>
+      </div>
+      <div id="questionAnswer" class="text-gray-700 mt-4 bg-gray-50 p-4 rounded-md border-l-4 border-green-500 hidden"></div>
+    </div>
+
+    <div class="mt-6">
+      <button onclick="window.location.href='/'" class="btn-primary text-white font-medium py-3 px-6 rounded-lg shadow-sm">
+        Voltar
+      </button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script src="imageComparison.js"></script>
+</body>
+</html>
