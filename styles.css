@@ -2,7 +2,7 @@
     --deepseek-green: #10a37f;
     --deepseek-dark: #202123;
     --deepseek-light: #f7f7f8;
-    --logo-height: 100px; /* <- Altere aqui o tamanho padrão do logo */
+    --logo-height: 400px; /* <- Altere aqui o tamanho padrão do logo */
 }
 
 body {
